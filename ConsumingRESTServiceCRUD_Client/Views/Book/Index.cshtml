@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ConsumingRESTServiceCRUD_Client.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Book", "AddBook")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISBN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit Book", "EditBook", new { id=item.BookId }) |
+            @Html.ActionLink("Details Book", "DetailsBook", new { id=item.BookId }) |
+            @Html.ActionLink("Delete Book", "DeleteBook", new { id=item.BookId })
+        </td>
+    </tr>
+}
+
+</table>
